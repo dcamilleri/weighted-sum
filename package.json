@@ -1,22 +1,22 @@
 {
-  "name": "ponderated-sum",
+  "name": "weighted-sum",
   "version": "1.0.0",
-  "description": "Ponderated sum algorithm implementation used on Mealou (https://m.me/Mealoubot | https://www.mealou.co)",
+  "description": "Weighted sum algorithm implementation used on Mealou (https://m.me/Mealoubot | https://www.mealou.co)",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dcamilleri/ponderated-sum.git"
+    "url": "git+https://github.com/dcamilleri/weighted-sum.git"
   },
   "keywords": [],
   "author": "Dorian CAMILLERI <dorian.camilleri@hetic.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dcamilleri/ponderated-sum/issues"
+    "url": "https://github.com/dcamilleri/weighted-sum/issues"
   },
-  "homepage": "https://github.com/dcamilleri/ponderated-sum#readme",
+  "homepage": "https://github.com/dcamilleri/weighted-sum#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",

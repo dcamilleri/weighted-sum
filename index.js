@@ -4,7 +4,7 @@ module.exports = (input, sortOptions) => {
   }
 
   if (input instanceof Array === false) {
-    throw new Error('Ponderated sum: wrong data type. Array is expected')
+    throw new Error('Weighted sum: wrong data type. Array is expected')
   }
 
   const criteriaSum = input
@@ -25,7 +25,7 @@ module.exports = (input, sortOptions) => {
           const nextRow = data[next]
 
           if (!nextRow || isNaN(nextRow)) {
-            throw new Error(`Ponderated sum: wrong data type for ${next}. Number is expected`)
+            throw new Error(`Weighted sum: wrong data type for ${next}. Number is expected`)
           }
 
           const rowValue = type === 'asc' ? nextRow : 1 / nextRow
