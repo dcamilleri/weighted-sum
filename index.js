@@ -7,6 +7,10 @@ module.exports = (input, sortOptions) => {
     throw new Error('Weighted sum error: wrong data type. Array is expected')
   }
 
+  if (!sortOptions || !Object.keys(sortOptions).length) {
+    throw new Error('Weighted sum error: sortOptions are empty')
+  }
+
   const optionsWeights =
     Object
       .keys(sortOptions)

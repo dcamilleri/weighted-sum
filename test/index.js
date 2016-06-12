@@ -9,6 +9,12 @@ describe('Weighted Sum: Error Management', () => {
     expect(ws).to.be.empty
   })
 
+  it('Should throw an error if sortedOptions are empty', () => {
+    const { source } = correctData
+    const ws = weightSum.bind(null, source, null)
+    expect(ws).to.throw(Error, 'Weighted sum error: sortOptions are empty')
+  })
+
   it('Should throw error if data is wrong type', () => {
     const ws = weightSum.bind(null, wrongType)
     expect(ws).to.throw(Error, 'Weighted sum error: wrong data type. Array is expected')
