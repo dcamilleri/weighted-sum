@@ -2,9 +2,11 @@
   "name": "weighted-sum",
   "version": "1.0.0",
   "description": "Weighted sum algorithm implementation used on Mealou (https://m.me/Mealoubot | https://www.mealou.co)",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "build": "babel index.js --out-dir dist",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,8 @@
   },
   "homepage": "https://github.com/dcamilleri/weighted-sum#readme",
   "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "standard": "^7.1.2"
