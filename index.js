@@ -11,13 +11,13 @@ module.exports = (input, sortOptions) => {
     throw new Error('Weighted sum error: sortOptions are empty')
   }
 
-  const optionsWeights =
+  const optionsWeight =
     Object
       .keys(sortOptions)
       .filter((row) => row !== 'includeScore')
       .reduce((prev, next) => prev + sortOptions[next].weight, 0)
 
-  if (optionsWeights > 1) {
+  if (optionsWeight > 1) {
     throw new Error('Weighted sum error: sum of all weights must equal 1')
   }
 
