@@ -36,4 +36,20 @@ describe('Weighted Sum: Sorting', () => {
     expect(ps.length).to.equal(expected.length)
     expect(ps).to.deep.equal(expected)
   })
+
+  it('Should return a sorted array including score if specified in options', () => {
+    const { source, sortOptions, expected } = correctData
+    sortOptions.includeScore = true
+
+    const ps = weighSum(source, sortOptions)
+    const ids = ps.map((res) => res.id)
+    const scores = ps.map((res) => res.score)
+
+    expect(ps.length).to.equal(expected.length)
+    expect(ids).to.deep.equal(expected)
+
+    expect(scores[0]).to.be.above(scores[1])
+    expect(scores[1]).to.be.above(scores[2])
+    expect(scores[4]).to.be.below(scores[0])
+  })
 })

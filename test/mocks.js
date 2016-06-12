@@ -64,7 +64,7 @@ const correctData = {
     },
     distance: {
       weight: 0.6,
-      type: 'desc'
+      sort: 'desc'
     }
   },
   expected: [
