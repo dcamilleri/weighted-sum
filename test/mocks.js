@@ -1,5 +1,5 @@
 const emptyData = null
-const wrongDataType = 'foo'
+const wrongType = 'foo'
 
 const errorData = {
   source: [
@@ -23,11 +23,32 @@ const errorData = {
       weight: 0.6,
       type: 'desc'
     }
-  },
-  expected: [
-    'Restaurant 1',
-    'Restaurant 2'
-  ]
+  }
+}
+
+const wrongDataType = {
+  source: [
+    {
+      id: 'Restaurant 1',
+      note: 4,
+      distance: 626
+    },
+    {
+      id: 'Restaurant 2',
+      note: 4,
+      distance: 100
+    }
+  ],
+  sortOptions: {
+    note: {
+      weight: 0.4,
+      type: 'asc'
+    },
+    distance: {
+      weight: 15,
+      type: 'desc'
+    }
+  }
 }
 
 const correctData = {
@@ -78,6 +99,7 @@ const correctData = {
 
 module.exports = {
   emptyData,
+  wrongType,
   wrongDataType,
   errorData,
   correctData

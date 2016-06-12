@@ -4,7 +4,17 @@ module.exports = (input, sortOptions) => {
   }
 
   if (input instanceof Array === false) {
-    throw new Error('Weighted sum: wrong data type. Array is expected')
+    throw new Error('Weighted sum error: wrong data type. Array is expected')
+  }
+
+  const optionsWeights =
+    Object
+      .keys(sortOptions)
+      .filter((row) => row !== 'includeScore')
+      .reduce((prev, next) => prev + sortOptions[next].weight, 0)
+
+  if (optionsWeights > 1) {
+    throw new Error('Weighted sum error: sum of all weights must equal 1')
   }
 
   const criteriaSum = input
@@ -26,7 +36,7 @@ module.exports = (input, sortOptions) => {
             const nextRow = data[next]
 
             if (!nextRow || isNaN(nextRow)) {
-              throw new Error(`Weighted sum: wrong data type for ${next}. Number is expected`)
+              throw new Error(`Weighted sum error: wrong data type for ${next}. Number is expected`)
             }
 
             const rowValue = sort === 'asc' ? nextRow : 1 / nextRow

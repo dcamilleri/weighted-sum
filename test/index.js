@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { emptyData, wrongDataType, errorData, correctData } = require('./mocks')
+const { emptyData, wrongType, wrongDataType, errorData, correctData } = require('./mocks')
 const weightSum = require('../index')
 
 describe('Weighted Sum: Error Management', () => {
@@ -10,14 +10,20 @@ describe('Weighted Sum: Error Management', () => {
   })
 
   it('Should throw error if data is wrong type', () => {
-    const ws = weightSum.bind(null, wrongDataType)
-    expect(ws).to.throw(Error, 'Weighted sum: wrong data type. Array is expected')
+    const ws = weightSum.bind(null, wrongType)
+    expect(ws).to.throw(Error, 'Weighted sum error: wrong data type. Array is expected')
   })
 
   it('Should throw an error if a data value is not a number', () => {
     const { source, sortOptions } = errorData
     const ws = weightSum.bind(null, source, sortOptions)
-    expect(ws).to.throw(Error, 'Weighted sum: wrong data type for distance. Number is expected')
+    expect(ws).to.throw(Error, 'Weighted sum error: wrong data type for distance. Number is expected')
+  })
+
+  it('Should throw an error if sum of all sortedOptions weights are not 1', () => {
+    const { source, sortOptions } = wrongDataType
+    const ws = weightSum.bind(null, source, sortOptions)
+    expect(ws).to.throw(Error, 'Weighted sum error: sum of all weights must equal 1')
   })
 })
 
