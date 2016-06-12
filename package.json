@@ -1,6 +1,6 @@
 {
   "name": "weighted-sum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Weighted sum algorithm implementation used on Mealou (https://m.me/Mealoubot | https://www.mealou.co)",
   "main": "dist/index.js",
   "scripts": {
