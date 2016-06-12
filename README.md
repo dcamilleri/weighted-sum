@@ -17,30 +17,30 @@ $ npm install weighted-sum
 ```
 
 ## Usage
-Sorting three items by `note` and `distance` fields:
+Sorting three restaurants by `note` and `distance` fields:
 
 ```js
 const weightSum = require('weighted-sum')
 const data = [
   {
-    id: 'item 1',
+    id: 'restaurant 1',
     note: 4,
     distance: 626
   },
   {
-    id: 'item 2',
+    id: 'restaurant 2',
     note: 4,
     distance: 410
   },
   {
-    id: 'item 3',
+    id: 'restaurant 3',
     note: 3,
     distance: 700
   }
 ]
 
 const sortOptions = {
-  includeScore: true,
+  includeScore: false,
   note: {
     weight: 0.4,
     sort: 'asc'
@@ -51,7 +51,7 @@ const sortOptions = {
   }
 }
 
-// Output: ['item 2', item 1', item 3]
+// Output: ['restaurant 2', restaurant 1', restaurant 3]
 const sortedItems = weightSum(data, sortOptions)
 ```
 
