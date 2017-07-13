@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { emptyData, wrongType, wrongDataType, errorData, correctData } = require('./mocks')
+const { emptyData, wrongType, wrongDataType, errorData, correctData, dataWithZeroValue } = require('./mocks')
 const weightSum = require('../index')
 
 describe('Weighted Sum: Error Management', () => {
@@ -63,5 +63,16 @@ describe('Weighted Sum: Sorting', () => {
     expect(scores[0]).to.be.above(scores[1])
     expect(scores[1]).to.be.above(scores[2])
     expect(scores[4]).to.be.below(scores[0])
+  })
+
+  it('Should sort when one value is zero', () => {
+    const { source, sortOptions, expected } = dataWithZeroValue;
+    sortOptions.includeScore = true
+
+    const ws = weightSum(source, sortOptions)
+    const ids = ws.map((res) => res.id)
+
+    expect(ws.length).to.equal(expected.length)
+    expect(ids).to.deep.equal(expected)
   })
 })

@@ -39,7 +39,7 @@ module.exports = (input, sortOptions) => {
             const { weight, sort = 'asc' } = sortOptions[next]
             const nextRow = data[next]
 
-            if (!nextRow || isNaN(nextRow)) {
+            if (isNaN(nextRow)) {
               throw new Error(`Weighted sum error: wrong data type for ${next}. Number is expected`)
             }
 
